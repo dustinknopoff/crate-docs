@@ -20,5 +20,7 @@ jobs:
         run: cargo +stable install rsdocs-dashing
       - name: dashing installation
         run: go get -u github.com/technosophos/dashing
+      - name: List
+        run: ls -a
       - name: Doc
         run: cargo doc
