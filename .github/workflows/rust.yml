@@ -49,7 +49,17 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: |
-            docsets/*.docset
+            docsets/tokio.docset
+            docsets/shipyard.docset
+            docsets/specs.docset
+            docsets/chrono.docset
+            docsets/sqlx.docset
+            docsets/pest.docset
+            docsets/walkdir.docset
+            docsets/clap.docset
+            docsets/regex.docset
+            docsets/glob.docset
+            docsets/rayon.docset
             crates.txt
       - name: Publish as Artifacts
         uses: actions/upload-artifact@v2
