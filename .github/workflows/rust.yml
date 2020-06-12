@@ -19,7 +19,7 @@ jobs:
         with:
           go-version: "1.*" # The Go version to download (if necessary) and use.
       - name: Check GOPATH
-          run: echo $GOPATH
+        run: echo $GOPATH
       # - name: rsdocs-dashing installation
       #   run: cargo +stable install rsdocs-dashing
       # - name: dashing installation
