@@ -10,7 +10,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  deps:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,9 +20,5 @@ jobs:
         run: cargo +stable install rsdocs-dashing
       - name: dashing installation
         run: go get -u github.com/technosophos/dashing
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Doc
         run: cargo doc
