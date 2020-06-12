@@ -8,3 +8,4 @@ walkdir
 clap
 regex
 glob
+rayon
