@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: "1.*" # The Go version to download (if necessary) and use.
-      - name: Check GOBIN
+      - name: dashing installation
         run: mkdir dashing; GOPATH=`pwd`/dashing go get -u github.com/technosophos/dashing
       - name: rsdocs-dashing installation
         run: cargo +stable install rsdocs-dashing
@@ -34,7 +34,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.sha }}
+          tag_name: v1-${{github.ref}}
           release_name: Release ${{ github.sha }}
           draft: false
           prerelease: false
