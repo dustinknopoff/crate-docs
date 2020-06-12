@@ -9,7 +9,7 @@ rsdocs-dashing target/doc/$line $line
 ./dashing/bin/dashing build --config $line/dashing.json --source $line/build
 echo " \
 <entry> \
-<version>0.10.26</version> \
+<version>$version</version> \
 <url>https://github.com/dustinknopoff/crate-docs/releases/download/latest/$line.tgz</url> \
 </entry> \
 " > $line.xml
