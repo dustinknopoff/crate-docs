@@ -26,6 +26,8 @@ jobs:
         run: cargo doc
       - name: Build docsets
         run: bash build-docsets.sh
+      - name: Check for docsets
+        run: for i in *.docset; do echo $i; done
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
