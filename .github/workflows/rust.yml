@@ -27,14 +27,14 @@ jobs:
       - name: Build docsets
         run: bash build-docsets.sh
       - name: Check for docsets
-        run: mkdir docsets; for i in *.docset; do mv $i docsets/; done
+        run: mkdir docsets; for i in *.docset; do mv $i docsets/; done && ls docsets
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v1.04-${{github.ref}}
+          tag_name: latest
           release_name: Release ${{ github.sha }}
           draft: false
           prerelease: false
