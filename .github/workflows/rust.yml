@@ -15,6 +15,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - uses: actions/cache@v2
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
       - uses: actions/setup-go@v2
         with:
           go-version: "1.*" # The Go version to download (if necessary) and use.
@@ -39,6 +52,6 @@ jobs:
             docsets/*.docset
             crates.txt
       - name: Publish as Artifacts
-          uses: actions/upload-artifact@v2
-          with:
-            path: docsets/*.docset
+        uses: actions/upload-artifact@v2
+        with:
+          path: docsets/*.docset
