@@ -19,7 +19,7 @@ jobs:
         with:
           go-version: "1.*" # The Go version to download (if necessary) and use.
       - name: Check GOBIN
-        run: go get -u github.com/technosophos/dashing && ls && ls $GOPATH/bin
+        run: mkdir dashing; GOPATH=dashing go get -u github.com/technosophos/dashing; ls dashing
       # - name: rsdocs-dashing installation
       #   run: cargo +stable install rsdocs-dashing
       # - name: dashing installation
