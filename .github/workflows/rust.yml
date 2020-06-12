@@ -44,7 +44,7 @@ jobs:
           mkdir docsets
           for i in *.docset; do 
           mv $i docsets/
-          tar --exclude='.DS_Store' -cvzf $i.tgz $i.docset
+          tar --exclude='.DS_Store' -cvzf ${i/.docset}.tgz $i
           done
           ls docsets
       - name: Create and Upload Release Asset
@@ -57,7 +57,3 @@ jobs:
           files: |
             docsets/*.tgz
             crates.txt
-      - name: Publish as Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          path: docsets/*.docset
