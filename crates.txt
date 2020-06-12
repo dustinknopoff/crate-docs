@@ -1,13 +1,10 @@
 tokio
-rocket
-tokio
 shipyard
 specs
 chrono
-diesel
-maud
 sqlx
 pest
-glob
-regex
 walkdir
+clap
+regex
+glob
