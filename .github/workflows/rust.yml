@@ -50,4 +50,5 @@ jobs:
           prerelease: false
           files: |
             *.tgz
+            *.xml
             crates.txt
