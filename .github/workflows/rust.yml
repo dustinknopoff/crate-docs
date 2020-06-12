@@ -35,4 +35,6 @@ jobs:
           automatic_release_tag: "latest"
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-          files: "**/*.docset"
+          files: |
+            docsets/*.docset
+            crates.txt
