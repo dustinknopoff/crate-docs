@@ -40,7 +40,13 @@ jobs:
       - name: Build docsets
         run: bash build-docsets.sh
       - name: Check for docsets
-        run: mkdir docsets; for i in *.docset; do mv $i docsets/; done && ls docsets
+        run: |
+          mkdir docsets
+          for i in *.docset; do 
+          mv $i docsets/
+          tar --exclude='.DS_Store' -cvzf $i.tgz $i.docset
+          done
+          ls docsets
       - name: Create and Upload Release Asset
         id: upload-release-asset
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -49,17 +55,7 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: |
-            docsets/tokio.docset
-            docsets/shipyard.docset
-            docsets/specs.docset
-            docsets/chrono.docset
-            docsets/sqlx.docset
-            docsets/pest.docset
-            docsets/walkdir.docset
-            docsets/clap.docset
-            docsets/regex.docset
-            docsets/glob.docset
-            docsets/rayon.docset
+            docsets/*.tgz
             crates.txt
       - name: Publish as Artifacts
         uses: actions/upload-artifact@v2
