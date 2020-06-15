@@ -11,10 +11,13 @@ tokio = {version = "*", features =["full"]}
 shipyard = "*"
 specs = "*"
 chrono = "*"
-sqlx = "*"
+sqlx = {version = "*", default-features = false, features=["sqlite","macros", "chrono","runtime-tokio"]}
 pest = "*"
 walkdir = "*"
 clap = "*"
 regex = "*"
 glob = "*"
 rayon = "*"
+reqwest = {version = "*", features=["json"]}
+serde = { version = "*", features = ["derive"] }
+serde_json = "*"
