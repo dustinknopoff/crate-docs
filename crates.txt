@@ -13,3 +13,4 @@ reqwest,0.10.6
 serde,1.0.112
 serde_json,1.0.55
 pulldown-cmark,0.7.1
+smol,0.1.18
