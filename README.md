@@ -1,6 +1,6 @@
 # crate-docs
 
-![Docset Generating](https://github.com/dustinknopoff/crate-docs/workflows/Rust/badge.svg)
+![Build Docsets](https://github.com/dustinknopoff/crate-docs/workflows/Build%20Docsets/badge.svg)
 
 Using Github Actions to automate building dash docsets for rust crates.
 
