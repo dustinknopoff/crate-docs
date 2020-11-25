@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [master]
   schedule:
-    - cron: '0 0 1 * *'
+    - cron: "0 0 1 * *"
 
 env:
   CARGO_TERM_COLOR: always
@@ -37,8 +37,10 @@ jobs:
         run: mkdir dashing; GOPATH=`pwd`/dashing go get -u github.com/technosophos/dashing
       - name: rsdocs-dashing installation
         run: cargo +stable install rsdocs-dashing
+      - name: Generate cargo name and versions
+        run: cargo run --features run
       - name: Doc
-        run: cargo doc
+        run: cargo doc --features doc
       - name: Build docsets
         run: bash build-docsets.sh
       - name: Check for docsets

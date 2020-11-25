@@ -1,25 +1,49 @@
 [package]
-name = "crate-docs"
-version = "0.1.0"
 authors = ["Dustin Knopoff <dustinknopoff@gmail.com>"]
 edition = "2018"
+name = "crate-docs"
+version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tokio = {version = "*", features =["full"]}
-shipyard = "*"
-specs = "*"
-chrono = "*"
-sqlx = {version = "*", default-features = false, features=["sqlite","macros", "chrono","runtime-tokio"]}
-pest = "*"
-walkdir = "*"
-clap = "*"
-regex = "*"
-glob = "*"
-rayon = "*"
-reqwest = {version = "*", features=["json"]}
-serde = { version = "*", features = ["derive"] }
-serde_json = "*"
-pulldown-cmark = "*"
-smol = "0.1.18"
+cargo-lock = {version = "6.0", optional = true}
+cargo_toml = {version = "0.8", optional = true}
+chrono = {version = "*", optional = true}
+clap = {version = "*", optional = true}
+csv = {version = "1.1", optional = true}
+glob = {version = "*", optional = true}
+pest = {version = "*", optional = true}
+pulldown-cmark = {version = "*", optional = true}
+rayon = {version = "*", optional = true}
+regex = {version = "*", optional = true}
+reqwest = {version = "*", features = ["json"], optional = true}
+serde = {version = "*", features = ["derive"], optional = true}
+serde_json = {version = "*", optional = true}
+shipyard = {version = "*", optional = true}
+smol = {version = "*", optional = true}
+specs = {version = "*", optional = true}
+sqlx = {version = "*", optional = true, default-features = false, features = ["sqlite", "macros", "chrono", "runtime-tokio"]}
+tokio = {version = "*", optional = true, features = ["full"]}
+walkdir = {version = "*", optional = true}
+
+[features]
+doc = [
+  "chrono",
+  "clap",
+  "glob",
+  "pest",
+  "pulldown-cmark",
+  "rayon",
+  "regex",
+  "reqwest",
+  "serde",
+  "serde_json",
+  "shipyard",
+  "smol",
+  "specs",
+  "sqlx",
+  "tokio",
+  "walkdir",
+]
+run = ["cargo-lock", "cargo_toml", "csv"]
