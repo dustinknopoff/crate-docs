@@ -38,9 +38,9 @@ jobs:
       - name: rsdocs-dashing installation
         run: cargo +stable install rsdocs-dashing
       - name: Generate cargo name and versions
-        run: cargo run --features run
+        run: cargo run
       - name: Doc
-        run: cargo doc --features doc
+        run: cargo doc
       - name: Build docsets
         run: bash build-docsets.sh
       - name: Check for docsets
